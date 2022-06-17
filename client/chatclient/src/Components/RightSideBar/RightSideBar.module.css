@@ -1,0 +1,52 @@
+.MainContainer {
+  position: relative;
+  height: 100vh;
+  background-color: aqua;
+}
+.ShowMessage {
+  height: 80%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.MessageInput {
+  height: 20%;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  border: 1px solid #ccc;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 2px;
+}
+
+.IconInput {
+  font-size: 1.3rem;
+  color: rgb(173, 173, 173);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+  height: 100%;
+}
+.IconInput:hover{
+    transition: all ease-in-out 500ms;
+    animation: GlowUp ease-in-out 500ms forwards;
+}
+@keyframes GlowUp{
+    
+    to{
+        color: rgb(151, 148, 148);
+        transform: scale(1.1);
+    }
+}
+.InputText {
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 2px 5px;
+  flex: 4;
+  height: 100%;
+}
