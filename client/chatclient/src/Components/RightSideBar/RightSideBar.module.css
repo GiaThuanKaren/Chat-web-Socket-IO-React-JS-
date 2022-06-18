@@ -19,7 +19,12 @@
   justify-content: space-between;
   padding: 8px 2px;
 }
-
+.Header{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
 .IconInput {
   font-size: 1.3rem;
   color: rgb(173, 173, 173);

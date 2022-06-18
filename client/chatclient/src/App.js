@@ -7,6 +7,7 @@ const socket = io("localhost:5000");
 import {Grid} from "@mui/material"
 import LeftSideBar from "./Components/LeftSidebar/LeftSideBar";
 import RightSideBar from "./Components/RightSideBar/RightSideBar";
+import ButtonAppBar from "./Components/MUI/Header";
 function App() {
   const [text, setText]=useState('')
   const SendMessage = function () {
@@ -18,6 +19,8 @@ function App() {
   return (
    <>
       {/* <h1>hhh</h1> */}
+      <ButtonAppBar />
+
       <Grid container columnSpacing={2}>
         <LeftSideBar />
         <RightSideBar />
