@@ -16,24 +16,25 @@ app.use("/", (req, res) => {
   res.send("...");
 });
 io.on("connection", function (socket) {
-  console.log(socket.id)
-  socket.on("send-message", (data,id) => {
-    console.log(id,"id User")
-    if(id===""){
-      console.log("Send All")
-      socket.broadcast.emit("received-message", data);
-
-    }else {
-      console.log("Send one")
-      socket.to(id).emit("received-message", data);
+  console.log(socket.id);
+  socket.on("send-message", (data, id) => {
+    console.log(id, "id User",data);
+    if (data!=="") {
+      if (id === "") {
+        console.log("Send All");
+        socket.broadcast.emit("received-message", data);
+      } else {
+        console.log("Send one");
+        socket.to(id).emit("received-message", data);
+      }
     }
 
     console.log(data);
   });
-  socket.on("join-room",room=>{
-    console.log(room,"Joined")
-    socket.join(room)
-  })
+  socket.on("join-room", (room) => {
+    console.log(room, "Joined");
+    socket.join(room);
+  });
 });
 
 server.listen(5000, () => {

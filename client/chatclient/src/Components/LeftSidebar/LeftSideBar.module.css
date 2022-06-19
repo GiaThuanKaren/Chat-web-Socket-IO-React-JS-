@@ -2,3 +2,9 @@
     height: 100vh;
     background-color: brown;
 }
+.LeftSideMainContainer{
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* background-color: aqua; */
+}
