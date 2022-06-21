@@ -22,7 +22,7 @@ function App() {
       {/* <h1>hhh</h1> */}
       {/* <ButtonAppBar /> */}
       <div style={{overflow:"hidden"}}>
-        <Grid container columnSpacing={2}>
+        <Grid container >
           <LeftSideBar />
           <RightSideBar />
         </Grid>

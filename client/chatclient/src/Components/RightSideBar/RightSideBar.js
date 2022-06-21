@@ -55,14 +55,11 @@ function RightSideBar() {
 
   return (
     <>
-      <Grid item lg={9} md={9} sm={10}>
-        <div className={`hidden-xs ${style.MainContainer}`}>
+      <Grid item lg={9} md={9} sm={10} xs={12}>
+        <div className={`${style.MainContainer}`}>
           <div ref={Ele} className={`${style.ShowMessage}`}>
             {textDisplay.map((item, idx) => {
-              {
-                /* console.log(item.from); */
-              }
-              return (
+              return item.message ? (
                 <div
                   key={`${item.message}${Math.random()}`}
                   className={`${style.BoxMsg}`}
@@ -80,7 +77,7 @@ function RightSideBar() {
                   </div>
                   {/* <p>12:45 am</p> */}
                 </div>
-              );
+              ) : null;
             })}
           </div>
 

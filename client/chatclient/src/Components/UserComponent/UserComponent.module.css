@@ -1,0 +1,21 @@
+.LeftSideInput,
+.LeftSideBarHeader {
+  height: 10%;
+  background-color: blanchedalmond;
+  /* padding: 2px 5px; */
+}
+
+.InputSearchItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
+.MainContainer {
+    height: 80%;
+    background-color: yellow;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
