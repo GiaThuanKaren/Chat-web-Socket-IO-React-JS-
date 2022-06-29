@@ -8,6 +8,8 @@ import { Grid } from "@mui/material";
 import LeftSideBar from "./Components/LeftSidebar/LeftSideBar";
 import RightSideBar from "./Components/RightSideBar/RightSideBar";
 import ButtonAppBar from "./Components/MUI/Header";
+import ChatSection from "./Page/ChatSection/ChatSection";
+import LoginAndRegister from "./Page/LoginAndRegister/LoginAndRegister";
 function App() {
   const [text, setText] = useState("");
   // const SendMessage = function () {
@@ -22,10 +24,8 @@ function App() {
       {/* <h1>hhh</h1> */}
       {/* <ButtonAppBar /> */}
       <div style={{overflow:"hidden"}}>
-        <Grid container >
-          <LeftSideBar />
-          <RightSideBar />
-        </Grid>
+        {/* <ChatSection /> */}
+        <LoginAndRegister />
       </div>
     </>
   );

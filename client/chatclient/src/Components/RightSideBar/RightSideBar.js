@@ -10,9 +10,11 @@ import ScrollToBottom from "react-scroll-to-bottom";
 import { useSelector } from "react-redux";
 import { socket } from "../../util/SocketConfig/socket";
 function RightSideBar() {
-  const GlobalState= useSelector(state=> state);
-  console.log(GlobalState)
-  const [textRoom, SetTextRoom] = useState(GlobalState.idUSer == "" ? "" : GlobalState.idUSer);
+  const GlobalState = useSelector((state) => state);
+  console.log(GlobalState);
+  const [textRoom, SetTextRoom] = useState(
+    GlobalState.idUSer == "" ? "" : GlobalState.idUSer
+  );
   const [roomID, SetRoomID] = useState(-1);
   const [textDisplay, SetTextDisplay] = useState([
     {
@@ -30,9 +32,13 @@ function RightSideBar() {
     SetTextDisplay((prev) => {
       return (prev = [...prev, { message: text, from: "send" }]);
     });
-    console.log("Hi",GlobalState.idUSer);
+    console.log("Hi", GlobalState.idUSer);
     Setmsg((prev) => [...prev, text]);
-    await socket.emit("send-message", text, GlobalState.idUSer == "" ? "" : GlobalState.idUSer);
+    await socket.emit(
+      "send-message",
+      text,
+      GlobalState.idUSer == "" ? "" : GlobalState.idUSer
+    );
     Ele.current.scrollTop = Ele.current.scrollHeight;
     // console.log("Sended", 36);
     console.log(Ele.current, Ele.current.scrollHeight, "after");
@@ -65,7 +71,6 @@ function RightSideBar() {
                   key={`${item.message}${Math.random()}`}
                   className={`${style.BoxMsg}`}
                 >
-                  
                   <div
                     className={
                       (item.from == "send"

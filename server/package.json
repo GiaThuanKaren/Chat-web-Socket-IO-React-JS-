@@ -2,10 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "ChatServer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "startServer":"nodemon index.js"
+    "startChatServer":"nodemon ChatServer.js",
+    "startAuthServer":"nodemon AuthServer.js"
   },
   "keywords": [],
   "author": "",
