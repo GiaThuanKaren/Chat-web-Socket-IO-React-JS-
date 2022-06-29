@@ -24,7 +24,7 @@ io.on("connection", function (socket) {
         console.log("Send All");
         socket.broadcast.emit("received-message", data);
       } else {
-        console.log("Send one");
+        console.log("Send one, to "+id);
         socket.to(id).emit("received-message", data);
       }
     }
