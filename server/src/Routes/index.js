@@ -1,19 +1,17 @@
+const RegisRoute = require("./RegisRoute")
+const LoginRoute = require("./LoginRoutes")
+const UserRoute = require("./UserRoute")
 const Routes=function(app){
-    app.use("/",(req,res)=>{
-        res.send("hi")
-    })
+    
     // [ GET , POST ] , Verify
 
-    app.use("/register",(req,res)=>{
-        res.send("Register")
-    })
+    app.use("/register",RegisRoute)
     // [ GET ] , Verify
-    app.use("/login",(req,res)=>{
-        res.send("Login")
-    })
+    app.use("/login",LoginRoute)
     //[ GET , POST , PUT , DELETE]
-    app.use("/user",(req,res)=>{
-        res.send("User")
+    app.use("/user",UserRoute)
+    app.use("/",(req,res)=>{
+        res.send("hi")
     })
 }
 module.exports =Routes
