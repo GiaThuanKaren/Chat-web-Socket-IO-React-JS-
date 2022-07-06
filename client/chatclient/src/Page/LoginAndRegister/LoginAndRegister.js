@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./LoginAndRegister.module.css";
-
+import axious from "axios"
 function LoginComp(){
   const [properties, Setproperties] = useState({
     Email: "",

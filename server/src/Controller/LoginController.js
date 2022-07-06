@@ -1,5 +1,8 @@
+const jwt = require("jsonwebtoken");
 const LoginController={
-    Login:function(req,res){
+    Login:async function(req,res){
+        const dataFormClient = req.body;
+        const accessToken = jwt
         res.send("Login Controller")
     }
 }

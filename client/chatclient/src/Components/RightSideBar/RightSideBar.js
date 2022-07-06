@@ -65,6 +65,9 @@ function RightSideBar() {
       <Grid item lg={9} md={9} sm={10} xs={12}>
         <div className={`${style.MainContainer}`}>
           <div ref={Ele} className={`${style.ShowMessage}`}>
+            {
+              GlobalState.idUSer === "" ? "No One": GlobalState.idUSer
+            }
             {textDisplay.map((item, idx) => {
               return item.message ? (
                 <div
