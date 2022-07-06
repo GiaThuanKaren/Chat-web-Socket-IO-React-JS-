@@ -5,7 +5,10 @@ const User = new Schema(
   {
     name: { type: String, require: true },
     email: { type: String, require: true },
+    password: { type: String, require: true },
     historyChat: { type: Array, default: [] },
+    isAdmin: { type: Boolean, default: false },
+    ExpiresTimeIn:{ type: String, require: true,default:"3d" },
     accessToken: { type: Array, require: true, default: [] },
     refreshToken: { type: Array, require: true, default: [] },
   },
