@@ -17,11 +17,10 @@ const LoginController = {
           expiresIn: "3d",
         });
         let bytes = CryptoJS.AES.decrypt(checkIsHaveEmai.password, HASH_SEC);
-        let decryptedEmail =JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-        // return res.json(decryptedEmail)
-        // console.log(32,JSON.parse(decryptedEmail))
+        let decryptedEmail = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
         if (decryptedEmail == dataFormClient.password) {
-          const { password, ...others } = checkIsHaveEmai._doc;
+          checkIsHaveEmai.accessToken.push(accessToken);
+          const { password,refreshToken, ...others } = checkIsHaveEmai._doc;
           console.log("Coas");
           res.json({
             msg: "Success",
