@@ -6,6 +6,7 @@ const User = new Schema(
     name: { type: String, require: true },
     email: { type: String, require: true },
     password: { type: String, require: true },
+    listFriend:{ type: Array, default: [] },
     historyChat: { type: Array, default: [] },
     isAdmin: { type: Boolean, default: false },
     ExpiresTimeIn:{ type: String, require: true,default:"3d" },

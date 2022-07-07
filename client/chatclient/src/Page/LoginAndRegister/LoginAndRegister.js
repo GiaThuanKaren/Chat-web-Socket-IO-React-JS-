@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import axious from "axios";
 function RegisterAndLoginComp() {
   const location = useLocation();
-  console.log(location.pathname);
+  // console.log(location.pathname);
   const [properties, Setproperties] = useState({
     Email: "",
     Pass: "",
@@ -15,20 +15,20 @@ function RegisterAndLoginComp() {
   async function Fetch() {
     if (properties.Pass === properties.RePass) {
       try {
-        let { data } = await axious.post(`http://localhost:5001/register`, {
+        let { data } = await axious.post(`http://localhost:5001${location.pathname}`, {
           name: properties.Name,
           email: properties.Email,
           password: properties.Pass,
         });
         console.log("Respone from server ", data);
-        if(data.status==404){
+        if (data.status == 404) {
           alert(data.msg);
         }
-        if(data.status==200){
-          alert(data.msg)
+        if (data.status == 200) {
+          alert(data.msg);
         }
       } catch (e) {
-        console.log(e,"Login Regis 25")
+        console.log(e, "Login Regis 25");
       }
     } else alert("Pass it not valid , try again");
   }

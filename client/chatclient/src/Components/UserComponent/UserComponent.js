@@ -52,7 +52,7 @@ function UserComponent() {
           />
         </Grid>
       </Grid>
-      <div flexWrap="false" container  className={`${style.MainContainer}`}>
+      <div  container  className={`${style.MainContainer}`}>
         {isSearch ? <SearchSection /> : <ListUserLeftSideBar />}
       </div>
     </>
