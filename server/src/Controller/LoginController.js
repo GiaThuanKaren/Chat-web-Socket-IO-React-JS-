@@ -20,7 +20,7 @@ const LoginController = {
         let decryptedEmail = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
         if (decryptedEmail == dataFormClient.password) {
           checkIsHaveEmai.accessToken.push(accessToken);
-          const { password,refreshToken, ...others } = checkIsHaveEmai._doc;
+          const { password, refreshToken, ...others } = checkIsHaveEmai._doc;
           console.log("Coas");
           res.json({
             msg: "Success",

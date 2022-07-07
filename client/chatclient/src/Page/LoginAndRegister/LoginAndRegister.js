@@ -1,17 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Grid } from "@mui/material";
 import style from "./LoginAndRegister.module.css";
-import axious from "axios"
-function LoginComp(){
+import { useLocation } from "react-router-dom";
+import axious from "axios";
+function RegisterAndLoginComp() {
+  const location = useLocation();
+  console.log(location.pathname);
   const [properties, Setproperties] = useState({
     Email: "",
     Pass: "",
     RePass: "",
+    Name: "",
   });
+  async function Fetch() {
+    if (properties.Pass === properties.RePass) {
+      try {
+        let { data } = await axious.post(`http://localhost:5001/register`, {
+          name: properties.Name,
+          email: properties.Email,
+          password: properties.Pass,
+        });
+        console.log("Respone from server ", data);
+        if(data.status==404){
+          alert(data.msg);
+        }
+        if(data.status==200){
+          alert(data.msg)
+        }
+      } catch (e) {
+        console.log(e,"Login Regis 25")
+      }
+    } else alert("Pass it not valid , try again");
+  }
   // fetch(``)
   return (
     <>
-      <div>
+      <Grid item>
         <form>
+          <label>Name</label>
+          <input
+            onChange={(e) => {
+              Setproperties({
+                ...properties,
+                Name: e.target.value,
+              });
+            }}
+          />
+          <br />
+
           <label>Email</label>
           <input
             value={properties.Email}
@@ -44,19 +80,34 @@ function LoginComp(){
               });
             }}
           />
-          <button>Register</button>
+          <br />
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              Fetch();
+            }}
+          >
+            Register
+          </button>
         </form>
-      </div>
+      </Grid>
     </>
   );
 }
 
 function LoginAndRegister() {
- return (
-  <>
-    <LoginComp/>
-  </>
- )
+  return (
+    <>
+      <Grid
+        style={{ height: "100%" }}
+        container
+        justifyContent={"center"}
+        alignItems={"center"}
+      >
+        <RegisterAndLoginComp />
+      </Grid>
+    </>
+  );
 }
 
 export default LoginAndRegister;
